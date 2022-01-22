@@ -24,6 +24,111 @@
               <label for="nama">Nama Varietas</label>
               <input type="text" name="nama" class="form-control" id="nama" value="{{ item.nama }}">
           </div>
+
+            <div class="mb-4">
+                <label for="nama">Batas Bawah Jarak Tanam</label>
+                <input type="number" min="0" step="0.01" name="low_jarak_tanam" 
+                  value="{{ item.low_jarak_tanam }}"
+                  class="form-control">
+            </div>
+            <div class="mb-4">
+                <label for="nama">Batas Atas Jarak Tanam</label>
+                <input type="number" min="0" step="0.01" name="up_jarak_tanam" 
+                  value="{{ item.up_jarak_tanam }}"
+                  class="form-control">
+            </div>
+
+            <div class="mb-4">
+                <label for="nama">Batas Bawah Ketahanan Penyakit</label>
+                <input type="number" min="0" step="0.01" name="low_ketahanan_penyakit" 
+                  value="{{ item.low_ketahanan_penyakit }}"
+                  class="form-control">
+            </div>
+            <div class="mb-4">
+                <label for="nama">Batas Atas Ketahanan Penyakit</label>
+                <input type="number" min="0" step="0.01" name="up_ketahanan_penyakit" 
+                  value="{{ item.up_ketahanan_penyakit }}"
+                  class="form-control">
+            </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Umur Panen</label>
+              <input type="number" min="0" name="low_umur_panen" class="form-control" 
+                value="{{ item.low_umur_panen }}"
+              >
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Umur Panen</label>
+              <input type="number" min="0" name="up_umur_panen" class="form-control"
+                value="{{ item.up_umur_panen }}"
+              >
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Daya Tumbuh</label>
+              <input type="number" min="0" step="0.01" name="low_daya_tumbuh" 
+                value="{{ item.low_daya_tumbuh }}"
+                class="form-control">
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Daya Tumbuh</label>
+              <input type="number" min="0" step="0.01" name="up_daya_tumbuh" 
+                value="{{ item.up_daya_tumbuh }}"
+                class="form-control">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Kadar Air</label>
+              <input type="number" min="0" step="0.01" name="low_kadar_air" 
+                value="{{ item.low_kadar_air }}"
+                class="form-control">
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Kadar Air</label>
+              <input type="number" min="0" step="0.01" name="up_kadar_air" 
+                value="{{ item.up_kadar_air }}"
+                class="form-control">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Harga Benih</label>
+              <input type="number" min="0" name="low_harga_benih" 
+                value="{{ item.low_harga_benih }}"
+                class="form-control">
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Harga Benih</label>
+              <input type="number" min="0" name="up_harga_benih" 
+                value="{{ item.up_harga_benih }}"
+                class="form-control">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Berat</label>
+              <input type="number" min="0" step="0.01" name="low_berat" 
+                value="{{ item.low_berat }}"
+                class="form-control">
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Berat</label>
+              <input type="number" min="0" step="0.01" name="up_berat" 
+                value="{{ item.up_berat }}"
+                class="form-control">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Batas Bawah Hasil Panen</label>
+              <input type="number" min="0" step="0.01" name="low_hasil_panen" 
+                value="{{ item.low_hasil_panen }}"
+                class="form-control">
+          </div>
+          <div class="mb-4">
+              <label for="nama">Batas Atas Hasil Panen</label>
+              <input type="number" min="0" step="0.01" name="up_hasil_panen" 
+                value="{{ item.up_hasil_panen }}"
+                class="form-control">
+          </div>
+
           <button class="btn btn-success mt-2" type="submit">Simpan</button>
           <!-- End of Form -->
           <!-- Form -->
