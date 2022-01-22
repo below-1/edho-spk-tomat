@@ -1,0 +1,63 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+	<div class="py-4">
+	    <nav aria-label="breadcrumb">
+	        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+	            <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+	            <li class="breadcrumb-item"><a href="#">App</a></li>
+	            <li class="breadcrumb-item active" aria-current="page">Kelompok Tani</li>
+	        </ol>
+	    </nav>
+	    <div class="d-flex justify-content-between w-100 flex-wrap">
+	        <div class="mb-3 mb-lg-0">
+	            <h1 class="h4">Data Kelompok Tani</h1>
+	            <p class="mb-0">Dozens of reusable components built to provide buttons, alerts, popovers, and more.</p>
+	        </div>
+	        <div>
+	            <a href="/app/data/create" class="btn btn-outline-gray"><i class="far fa-question-circle mr-1"></i> Tambah Kelompok Tani</a>
+	        </div>
+	    </div>
+	</div>
+	<div class="card border-light shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-centered table-nowrap mb-0 rounded">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="border-0"></th>
+                        <th class="border-0">Nama</th>
+                        <th class="border-0">Desa</th>
+                        <th class="border-0">Ketua</th>
+                        <th class="border-0">Jumlah Anggota</th>
+                        <th class="border-0">Luas Lahan</th>
+                        <th class="border-0">Tanggal Pembentukan</th>
+                        <th class="border-0"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td class="font-weight-bold">{{ loop.index }}</td>
+                            <td class="font-weight-bold">{{ item.nama }}</td>
+                            <td class="font-weight-bold">
+                                <a href="/app/desa/{{item.desa_id}}/edit">
+                                    {{ item.desa_nama }}
+                                </a>
+                            </td>
+                            <td class="font-weight-bold">{{ item.ketua }}</td>
+                            <td class="font-weight-bold">{{ item.jumlah_anggota }}</td>
+                            <td class="font-weight-bold">{{ item.luas_lahan }}</td>
+                            <td class="font-weight-bold">{{ item.display_tp }}</td>
+                            <td class="text-right">
+                                <a href="/app/data/{{item.id}}/edit" class="btn btn-info btn-sm" >edit</a>
+                                <a href="/app/data/{{item.id}}/delete_confirm" class="btn btn-danger btn-sm" >hapus</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

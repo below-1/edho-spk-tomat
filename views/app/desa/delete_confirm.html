@@ -1,0 +1,31 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+      <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Desa</li>
+    </ol>
+  </nav>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card border-light shadow-sm">
+      <div class="card-body">
+        <h4 class="my-4">Anda Akan Menghapus data desa <strong>{{item.nama}}</strong>?</h4>
+        <div>
+          <a href="/app/desa/{{item.id}}/delete" class="btn btn-danger btn-lg">Lanjutkan</a>
+          <script>
+            function del_back () {
+              window.history.back();
+            }
+          </script>
+          <button onclick="del_back()" class="btn btn-lg">Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

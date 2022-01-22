@@ -1,0 +1,139 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+      <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Lahan Pertanian</li>
+    </ol>
+  </nav>
+  <div class="d-flex justify-content-between w-100 flex-wrap">
+    <div class="mb-3 mb-lg-0">
+      <h1 class="h4">Ubah Data Lahan Pertanian</h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="card border-light shadow-sm">
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          <div class="mb-4">
+              <label >Nama Petani</label>
+              <input type="text" name="nama_petani" required class="form-control " value="{{ item.nama_petani }}">
+          </div>
+
+          <div class="mb-4">
+              <label >Alamat</label>
+              <input type="text" name="alamat" required class="form-control " value="{{ item.alamat }}">
+          </div>
+
+          <div class="mb-4">
+              <label >Varietas</label>
+              <select class="form-select"  name="varietas_id" value="{{ item.varietas_id }}">
+                <option selected="">Pilih Varietas</option>
+                {% for opt_var in varietas_list %}
+                  <option
+                    {% if item.varietas_id == opt_var.id %} selected {% endif %} 
+                    value="{{opt_var.id}}">{{ opt_var.nama }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label >Luas Lahan</label>
+              <input type="number" step="0.01" min="0" required name="luas_lahan" class="form-control "
+                value="{{ item.luas_lahan }}">
+          </div>
+          <div class="mb-4">
+              <label >Tanggal Keluar</label>
+              <input type="date" required name="tanggal_keluar" class="form-control "
+                value="{{ item.tanggal_keluar }}">
+          </div>
+          <div class="mb-4">
+              <label >Berat</label>
+              <div class="d-flex align-items-center">
+                <input type="number" step="0.01" name="berat" class="form-control"
+                  value="{{ item.berat }}">
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Umur Panen</label>
+              <div class="d-flex align-items-center">
+                <input type="number" step="0.01" name="umur_panen" class="form-control " placeholder="Batas Bawah"
+                  value="{{ item.umur_panen }}">
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Harga Benih</label>
+              <input type="number" step="0.01" min="0" required name="harga_benih" class="form-control "
+                value="{{ item.harga_benih }}">
+          </div>
+          <div class="mb-4">
+              <label >Daya Tumbuh</label>
+              <div class="input-group">
+                <input type="number" step="0.01" 
+                  name="daya_tumbuh"
+                  class="form-control "
+                  value="{{ item.daya_tumbuh }}">
+                <span class="input-group-text bg-light">%</span>
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Kadar Air</label>
+              <div class="input-group">
+                <input type="number" step="0.01" 
+                  name="kadar_air"
+                  class="form-control "
+                  value="{{ item.kadar_air }}">
+                <span class="input-group-text bg-light">%</span>
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Ketahanan Penyakit</label>
+              <select class="form-select"  name="ketahanan_penyakit">
+                <option selected="">Pilih Ketahanan Penyakit</option>
+                <option value="1" {% if item.ketahanan_penyakit == 1 %} selected {% endif %}>Busuk Daun</option>
+                <option value="2" {% if item.ketahanan_penyakit == 2 %} selected {% endif %}>Busuk Buah</option>
+                <option value="3" {% if item.ketahanan_penyakit == 3 %} selected {% endif %}>Virus Kuning</option>
+                <option value="4" {% if item.ketahanan_penyakit == 4 %} selected {% endif %}>Layu Fusarium</option>
+                <option value="5" {% if item.ketahanan_penyakit == 5 %} selected {% endif %}>Layu Bakteri</option>
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label >Jarak Tanam</label>
+              <select class="form-select"  name="jarak_tanam">
+                <option selected="">Pilih Jarak Tanam</option>
+                <option value="1" {% if item.jarak_tanam == 1 %} selected {% endif %}>40 x 50</option>
+                <option value="2" {% if item.jarak_tanam == 2 %} selected {% endif %}>60 x 50</option>
+                <option value="3" {% if item.jarak_tanam == 3 %} selected {% endif %}>80 x 50</option>
+              </select>
+          </div>
+          <div class="mb-4">
+              <label >Lokasi Lahan</label>
+              <input type="text" name="lokasi" required class="form-control" value="{{ item.lokasi }}">
+          </div>
+
+          <div class="mb-4">
+              <label >Hasil Panen</label>
+              <div class="input-group">
+                <input type="number" step="0.01" 
+                  name="hasil_panen"
+                  class="form-control"
+                  value="{{ item.hasil_panen }}">
+                <span class="input-group-text bg-light">Ton</span>
+              </div>
+          </div>
+
+          <button class="btn btn-success mt-2" type="submit">Simpan</button>
+          <!-- End of Form -->
+          <!-- Form -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

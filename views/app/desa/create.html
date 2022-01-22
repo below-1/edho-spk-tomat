@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+      <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Desa</li>
+    </ol>
+  </nav>
+  <div class="d-flex justify-content-between w-100 flex-wrap">
+    <div class="mb-3 mb-lg-0">
+      <h1 class="h4">Tambah Data Desa</h1>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card border-light shadow-sm">
+      <div class="card-body">
+        <form method="post" action="/app/desa/create" enctype="multipart/form-data">
+          <div class="mb-4">
+              <label for="nama">Nama Desa</label>
+              <input type="text" name="nama" class="form-control" id="nama">
+          </div>
+          <button class="btn btn-success mt-2" type="submit">Simpan</button>
+          <!-- End of Form -->
+          <!-- Form -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

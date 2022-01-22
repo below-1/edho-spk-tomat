@@ -1,0 +1,133 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+      <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Lahan Pertanian</li>
+    </ol>
+  </nav>
+  <div class="d-flex justify-content-between w-100 flex-wrap">
+    <div class="mb-3 mb-lg-0">
+      <h1 class="h4">Tambah Data Lahan Pertanian</h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="card border-light shadow-sm">
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          <div class="mb-4">
+              <label >Nama Petani</label>
+              <input type="text" name="nama_petani" required class="form-control ">
+          </div>
+
+          <div class="mb-4">
+              <label >Alamat</label>
+              <input type="text" name="alamat" required class="form-control ">
+          </div>
+
+          <div class="mb-4">
+              <label >Varietas</label>
+              <select class="form-select"  name="varietas_id">
+                <option selected="">Pilih Varietas</option>
+                {% for opt_var in varietas_list %}
+                  <option value="{{opt_var.id}}">{{ opt_var.nama }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label >Luas Lahan</label>
+              <input type="number" step="0.01" min="0" required name="luas_lahan" class="form-control ">
+          </div>
+          <div class="mb-4">
+              <label >Tanggal Keluar</label>
+              <input type="date" required name="tanggal_keluar" class="form-control ">
+          </div>
+          <div class="mb-4">
+              <label >Berat</label>
+              <div class="d-flex align-items-center">
+                <input type="number" step="0.01" name="berat" class="form-control">
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Umur Panen</label>
+              <input type="number" step="1" name="umur_panen" class="form-control">
+          </div>
+          <div class="mb-4">
+              <label >Harga Benih</label>
+              <input type="number" step="0.01" min="0" required name="harga_benih" class="form-control ">
+          </div>
+          <div class="mb-4">
+              <label >Daya Tumbuh</label>
+              <div class="input-group">
+                <input type="number" step="0.01" 
+                  name="daya_tumbuh"
+                  class="form-control ">
+                <span class="input-group-text bg-light">%</span>
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Kadar Air</label>
+              <div class="input-group">
+
+
+                <input type="number" step="0.01" 
+                  name="kadar_air"
+                  class="form-control ">
+                <span class="input-group-text bg-light">%</span>
+              </div>
+          </div>
+          <div class="mb-4">
+              <label >Ketahanan Penyakit</label>
+              <select class="form-select"  name="ketahanan_penyakit">
+                <option selected="">Pilih Ketahanan Penyakit</option>
+                <option value="1">Busuk Daun</option>
+                <option value="2">Busuk Buah</option>
+                <option value="3">Virus Kuning</option>
+                <option value="4">Layu Fusarium</option>
+                <option value="5">Layu Bakteri</option>
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label >Jarak Tanam</label>
+              <select class="form-select"  name="jarak_tanam">
+                <option selected="">Pilih Jarak Tanam</option>
+                <option value="1">40 cm x 50 cm</option>
+                <option value="2">60 cm x 50 cm</option>
+                <option value="3">80 cm x 50 cm</option>
+              </select>
+          </div>
+          <div class="mb-4">
+              <label >Lokasi Lahan</label>
+              <select class="form-select" name="lokasi">
+                <option>Dataran Rendah</option>
+                <option>Dataran Menengah</option>
+                <option>Dataran Tinggi</option>
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label >Hasil Panen</label>
+              <div class="input-group">
+                <input type="number" step="0.01" 
+                  name="hasil_panen"
+                  class="form-control">
+                <span class="input-group-text bg-light">Ton</span>
+              </div>
+          </div>
+
+          <button class="btn btn-success mt-2" type="submit">Simpan</button>
+          <!-- End of Form -->
+          <!-- Form -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

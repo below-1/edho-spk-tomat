@@ -1,0 +1,47 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+  <div class="py-4">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+              <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+              <li class="breadcrumb-item"><a href="#">App</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Sensitivitas</li>
+          </ol>
+      </nav>
+      <div class="d-flex justify-content-between w-100 flex-wrap">
+          <div class="mb-3 mb-lg-0">
+              <h1 class="h4">Form Sensitivitas</h1>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <form enctype="multipart/form-data" method="POST" class="card border-light shadow-sm">
+        <div class="card-body">
+          <div>
+            <label class="d-block">Pilih Kriteria</label>
+            <select class="form-control" name="index">
+              {% for item in items %}
+                <option value="{{ loop.index }}">{{ item.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div>
+            <label class="d-block">Ubah Nilai</label>
+            <select name="value" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-lg btn-info">submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

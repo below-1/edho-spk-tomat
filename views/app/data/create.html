@@ -1,0 +1,94 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+      <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Kelompok Tani</li>
+    </ol>
+  </nav>
+  <div class="d-flex justify-content-between w-100 flex-wrap">
+    <div class="mb-3 mb-lg-0">
+      <h1 class="h4">Tambah Data Kelompok Tani</h1>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card border-light shadow-sm">
+      <div class="card-body">
+        <form method="post" action="/app/data/create" enctype="multipart/form-data">
+
+          <div class="mb-4">
+              <label for="nama">Nama Kelompok Tani</label>
+              <input type="text" name="nama" class="form-control" id="nama">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Desa</label>
+              <select class="form-select" name="id_desa">
+                <option disabled>Pilih Desa</option>
+                {% for opt_desa in desa_list %}
+                  <option value="{{opt_desa.id}}">{{ opt_desa.nama }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Jumlah Anggota</label>
+              <input type="number" min="0" name="jumlah_anggota" class="form-control" id="jumlah_anggota">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Nama Ketua</label>
+              <input type="text" name="ketua" class="form-control" id="ketua">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Tanggal Pembentukan</label>
+              <input type="date" name="tanggal_pembentukan" class="form-control" id="tanggal_pembentukan">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Luas Lahan</label>
+              <input type="number" min="0" name="luas_lahan" class="form-control" id="luas_lahan">
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Kartu Kelompok Tani</label>
+              <select class="form-select" name="kartu_kt">
+                <option value="5">Memiliki Kartu Kelompok</option>
+                <option value="1">Tidak Memiliki Kartu Kelompok</option>
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Proposal</label>
+              <select class="form-select" name="proposal">
+                <option value="5">Memenuhi Semua Kelengkapan</option>
+                <option value="1">Tidak Memenuhi Kelengkapan</option>
+              </select>
+          </div>
+
+          <div class="mb-4">
+              <label for="nama">Status Lahan</label>
+              <select class="form-select" name="status_lahan">
+                <option value="5">Sertifikat Kepemilikan Tanah</option>
+                <option value="4">Surat Bukti Lahan diluar Hutan Lindung</option>
+                <option value="3">Surat Bukti Lahan Bukan Sengketa</option>
+                <option value="2">Surat Bukti Sewa Atau Kontrak</option>
+                <option value="1">Tidak Ada</option>
+              </select>
+          </div>
+
+          <button class="btn btn-success mt-2" type="submit">Simpan</button>
+          <!-- End of Form -->
+          <!-- Form -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
